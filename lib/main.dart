@@ -1,4 +1,8 @@
+import 'package:counter_7/menu.dart';
 import 'package:flutter/material.dart';
+import 'package:counter_7/input_budget.dart';
+import 'package:counter_7/show_budget.dart';
+import 'package:counter_7/menu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -61,16 +65,15 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _decrementCounter(){
+  void _decrementCounter() {
     setState(() {
-        if (_counter == 0) {
-          return;
-        } else {
-          _counter--;
-        }
+      if (_counter == 0) {
+        return;
+      } else {
+        _counter--;
+      }
     });
   }
-  
 
   @override
   Widget build(BuildContext context) {
@@ -86,6 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
+      drawer: const DrawMenu(),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
@@ -107,10 +111,10 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-             _counter % 2 == 0 ? 'Genap' : 'Ganjil',
+              _counter % 2 == 0 ? 'Genap' : 'Ganjil',
               style: TextStyle(
                 color: _counter % 2 == 0 ? Colors.red : Colors.blue,
-              ), 
+              ),
             ),
             Text(
               '$_counter',
@@ -122,25 +126,24 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(left: 30),
         child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Visibility(
-            visible: _counter < 1 ? false : true,
-            child: FloatingActionButton(
-              onPressed: _decrementCounter,
-              tooltip: 'Decrement',
-              child: const Icon(Icons.remove),
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Visibility(
+              visible: _counter < 1 ? false : true,
+              child: FloatingActionButton(
+                onPressed: _decrementCounter,
+                tooltip: 'Decrement',
+                child: const Icon(Icons.remove),
+              ),
             ),
-          ),
-        FloatingActionButton(
-          onPressed: _incrementCounter,
-          tooltip: 'Increment',
-          child: const Icon(Icons.add),
-        ), // This trailing comma makes auto-formatting nicer for build methods.
-        ],
-    ),
-    ),
-    
+            FloatingActionButton(
+              onPressed: _incrementCounter,
+              tooltip: 'Increment',
+              child: const Icon(Icons.add),
+            ), // This trailing comma makes auto-formatting nicer for build methods.
+          ],
+        ),
+      ),
     );
   }
 }
