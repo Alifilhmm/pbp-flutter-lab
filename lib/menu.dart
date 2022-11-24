@@ -1,3 +1,4 @@
+import 'package:counter_7/show_watchlist.dart';
 import 'package:flutter/material.dart';
 import 'package:counter_7/main.dart';
 import 'package:counter_7/input_budget.dart';
@@ -24,6 +25,13 @@ class DrawMenu extends StatelessWidget {
           ListTile( title: const Text('Data Budget'),
             onTap: () {
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const ShowBudgetPage()));
+            },
+          ),
+          ListTile(
+            title: const Text('My Watchlist'),
+            onTap: () {
+              // Route menu ke halaman data budget
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MyWatchlistPage()),);
             },
           ),
         ],
